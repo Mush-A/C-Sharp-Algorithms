@@ -4,12 +4,22 @@ namespace Interview.Sorting;
 
 public class Sort<T> : ISort<T> where T : IComparable<T>
 {
-    private readonly List<T> _list;
+    private List<T> _list;
     public List<T>? sortedList { get; private set; }
 
     public Sort(List<T> list)
     {
         _list = list;
+    }
+
+    public Sort() 
+    {
+    }
+
+    public ISort<T> Start(List<T> list)
+    {
+        _list = list;
+        return this;
     }
 
     public ISort<T> BubbleSort()
@@ -32,6 +42,8 @@ public class Sort<T> : ISort<T> where T : IComparable<T>
 
         return this;   
     }
+
+    public List<T> ReturnList() => this.sortedList;
 
     public string Print() 
         => sortedList != null && sortedList.Count > 0 ?

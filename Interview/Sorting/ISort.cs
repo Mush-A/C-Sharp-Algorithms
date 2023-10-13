@@ -2,6 +2,8 @@
 
 public interface ISort<T>
 {
-    public ISort<T> BubbleSort();
-    public string Print();
+    ISort<T> BubbleSort();
+    ISort<T> Start(List<T> list);
+    List<T> ReturnList();
+    string Print();
 }
